@@ -13,7 +13,6 @@ host = os.environ.get('HOST_BD')
 user_ADV = os.environ.get('PG_USER_ADVANCED')
 password = os.environ.get('PG_PASSWORD')
 port_ADV = os.environ.get('PG_PORT_ADVANCED')
-
 database_DMcients = os.environ.get('PG_DATABASE_DMCIENTS')
 user_DMcients = os.environ.get('PG_USER_DMCIENTS')
 port_DMcients = os.environ.get('PG_PORT_DMCIENTS')
@@ -59,15 +58,6 @@ def query_DBDMCients(sql):
         registros.append(rec)
     con.close()
     return registros
-
-
-def create_statisticsByCients():
-    sql_select_all = """select * from "statisticsByCients" """
-
-    df = pd.DataFrame(query_DBstatisticsByCients(sql_select_all), columns=['id', 'id_client', 'client_name', 'company_token', 'quantity_services_opened',
-                                                                           'quantity_message_sended', 'quantity_message_received', 'quantity_looked_by_tag', 'computed_date', 'createdAt'])
-
-    return df
 
 
 def insert_DBDMcients(sql):
