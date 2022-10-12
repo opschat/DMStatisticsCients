@@ -95,7 +95,7 @@ def searchLastId_DM():
 def catch_lastRecordStatisticsByCients(lastIdDM):
 
     sql_select_all = f"""select * from "statisticsByCients"
-where id > {lastIdDM} """
+where id > {lastIdDM} and company_token = 'f3e673588846f37b5f56bb6e9183c1d1f9797665c2794af0ec32cfe9f588'"""
 
     df = pd.DataFrame(query_DBstatisticsByCients(sql_select_all), columns=['id', 'id_client', 'client_name', 'company_token', 'quantity_services_opened',
                                                                            'quantity_message_sended', 'quantity_message_received', 'quantity_looked_by_tag', 'computed_date', 'createdAt'])
